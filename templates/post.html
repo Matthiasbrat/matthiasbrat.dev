@@ -1,0 +1,27 @@
+{{define "content"}}
+<div class="page-layout">
+    <aside class="sidebar {{if .Collection.IsBlog}}sidebar-blog{{else}}sidebar-docs{{end}}" aria-label="Navigation">
+        <div class="sidebar-inner">
+            {{if .Collection.IsDocs}}
+                {{template "sidebar-docs" .}}
+                {{template "sidebar-toc" .}}
+                {{template "sidebar-pager" .}}
+            {{else}}
+                {{template "sidebar-blog" .}}
+                {{template "sidebar-toc" .}}
+            {{end}}
+        </div>
+    </aside>
+
+    <article class="post-content">
+        {{template "post-header" .}}
+
+        <div class="post-body">
+            {{.Post.Content | safeHTML}}
+        </div>
+
+        {{template "post-pager" .}}
+        {{template "post-footer" .}}
+    </article>
+</div>
+{{end}}

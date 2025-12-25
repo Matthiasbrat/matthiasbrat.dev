@@ -1,0 +1,101 @@
+{{define "content"}}
+<div class="blog-container">
+    <header class="blog-header">
+        <h1>{{.Collection.Name}}</h1>
+        {{if .Collection.Description}}
+        <p class="blog-description">{{.Collection.Description}}</p>
+        {{end}}
+    </header>
+
+    {{if .Collection.ChildSeries}}
+    <section class="series-section" aria-labelledby="series-heading">
+        <h2 id="series-heading" class="series-section-title">Series</h2>
+        <div class="series-grid">
+            {{range .Collection.ChildSeries}}
+            <a href="/{{.Slug}}" class="series-badge">
+                {{if .Banner}}
+                <div class="series-badge-banner">
+                    <img src="{{.Banner}}" alt="" loading="lazy">
+                </div>
+                {{end}}
+                <div class="series-badge-content">
+                    <h3 class="series-badge-title">{{.Name}}</h3>
+                    {{if .Description}}
+                    <p class="series-badge-description">{{.Description}}</p>
+                    {{end}}
+                    <span class="series-badge-count">{{.PostCount}} {{if eq .PostCount 1}}post{{else}}posts{{end}}</span>
+                </div>
+            </a>
+            {{end}}
+        </div>
+    </section>
+    {{end}}
+
+    <section class="posts-section" aria-labelledby="posts-heading">
+        <div class="posts-header">
+            <h2 id="posts-heading" class="posts-section-title">{{if .Collection.ChildSeries}}Latest Posts{{else}}Posts{{end}}</h2>
+            <div class="posts-controls">
+                <div class="sort-control">
+                    <label for="blog-sort-select" class="sort-label">Sort:</label>
+                    <select id="blog-sort-select" class="sort-select" data-blog-sort>
+                        <option value="newest">Newest first</option>
+                        <option value="oldest">Oldest first</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="posts-list posts-list-blog">
+            {{range .Posts}}
+            <article class="post-card" data-date="{{.Date.Unix}}" data-updated="{{if not .Updated.IsZero}}{{.Updated.Unix}}{{else}}{{.Date.Unix}}{{end}}">
+                <h2 class="post-card-title"><a href="{{.URL}}">{{.Title}}</a></h2>
+                {{if .Description}}
+                <p class="post-description">{{.Description}}</p>
+                {{end}}
+                <div class="post-meta">
+                    <time datetime="{{.Date.Format "2006-01-02"}}">{{.Date.Format "January 2, 2006"}}</time>
+                    {{if not .Updated.IsZero}}
+                    <span class="post-updated">· Updated {{.Updated.Format "January 2, 2006"}}</span>
+                    {{end}}
+                </div>
+            </article>
+            {{end}}
+
+            {{if not .Posts}}
+            <p class="no-posts">No posts yet.</p>
+            {{end}}
+        </div>
+
+        {{if gt .TotalPages 1}}
+        <nav class="pagination" aria-label="Blog pagination">
+            <div class="pagination-info">
+                Page {{.CurrentPage}} of {{.TotalPages}}
+            </div>
+            <div class="pagination-links">
+                {{if gt .CurrentPage 1}}
+                <a href="{{if eq .PrevPage 1}}/blog{{else}}/blog/page/{{.PrevPage}}{{end}}" class="pagination-link pagination-prev" aria-label="Go to previous page">
+                    <span aria-hidden="true">←</span> Previous
+                </a>
+                {{end}}
+
+                {{range .PageNumbers}}
+                {{if eq . $.CurrentPage}}
+                <span class="pagination-link pagination-current" aria-current="page">{{.}}</span>
+                {{else if eq . -1}}
+                <span class="pagination-ellipsis" aria-hidden="true">…</span>
+                {{else}}
+                <a href="{{if eq . 1}}/blog{{else}}/blog/page/{{.}}{{end}}" class="pagination-link" aria-label="Go to page {{.}}">{{.}}</a>
+                {{end}}
+                {{end}}
+
+                {{if lt .CurrentPage .TotalPages}}
+                <a href="/blog/page/{{.NextPage}}" class="pagination-link pagination-next" aria-label="Go to next page">
+                    Next <span aria-hidden="true">→</span>
+                </a>
+                {{end}}
+            </div>
+        </nav>
+        {{end}}
+    </section>
+</div>
+{{end}}

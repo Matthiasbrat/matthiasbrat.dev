@@ -1,0 +1,14 @@
+{{define "sidebar-docs"}}
+<nav class="sidebar-nav">
+    <div class="sidebar-header">
+        <a href="/{{.Collection.Slug}}" class="sidebar-collection">{{.Collection.Name}}</a>
+    </div>
+    <ol class="sidebar-chapters">
+        {{range .Collection.Posts}}
+        <li class="sidebar-chapter {{if eq .Slug $.Post.Slug}}sidebar-chapter-active{{end}}">
+            <a href="{{.URL}}">{{.Title}}</a>
+        </li>
+        {{end}}
+    </ol>
+</nav>
+{{end}}

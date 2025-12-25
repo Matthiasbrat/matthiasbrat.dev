@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=null
+title: "Matthias Brat"
+description: "A blog and documentation site"
+base_url: "https://preview.matthiasbrat.dev"
+dev_base_url: "http://localhost:3000" # Base URL for local development
+default_social_image: "/me.jpg"
+
+# Google OAuth (for reactions)
+# Create a .env file with:
+#   GOOGLE_CLIENT_ID=your-client-id
+#   GOOGLE_CLIENT_SECRET=your-client-secret
+# See .env.example for template
+
+# Profile
+profile:
+  photo: "/me.jpg"
+  bio: "Monitoring Developer @ European Commission"
+  github: "https://github.com/Matthiasbrat"
+  linkedin: "https://www.linkedin.com/in/matthias-brat"
+  email: "matt@example.com"
+
+# Referrals (people I recommend)
+referrals:
+  - name: "Jane Doe"
+    photo: "https://avatar.vercel.sh/dev-user.svg?text=JD"
+    github: "https://github.com/janedoe"
+    linkedin: "https://linkedin.com/in/janedoe"
+    website: "https://janedoe.dev"
+  - name: "John Smith"
+    photo: "https://avatar.vercel.sh/dev-user.svg?text=JM"
+    github: "https://github.com/johnsmith"
+    linkedin: "https://linkedin.com/in/johnsmith"
+    twitter: "https://twitter.com/johnsmith"

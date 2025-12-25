@@ -1,0 +1,14 @@
+{{define "sidebar-toc"}}
+{{if .Post.TOC}}
+<nav class="sidebar-toc">
+    <h3 class="sidebar-toc-title">On this page</h3>
+    <ul class="toc-list">
+        {{range .Post.TOC}}
+        <li class="toc-item toc-level-{{.Level}}">
+            <a href="#{{.ID}}">{{.Text}}</a>
+        </li>
+        {{end}}
+    </ul>
+</nav>
+{{end}}
+{{end}}

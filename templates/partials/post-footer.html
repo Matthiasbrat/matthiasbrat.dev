@@ -1,0 +1,39 @@
+{{define "post-footer"}}
+<footer class="post-footer">
+  <div class="reactions" data-post="{{.Post.TopicSlug}}/{{.Post.Slug}}">
+    <span class="reactions-label">React:</span>
+    <div class="reaction-buttons">
+      {{range .Emojis}}
+      <button class="reaction-btn" data-emoji="{{.}}">
+        <span class="emoji">{{.}}</span>
+        <span class="count" data-emoji="{{.}}">0</span>
+      </button>
+      {{end}}
+    </div>
+  </div>
+
+  <div class="comments-section" data-post="{{.Post.TopicSlug}}/{{.Post.Slug}}">
+    <h3 class="comments-title">Comments</h3>
+
+    <div class="comment-form">
+      <div class="comment-form-avatar">
+        <div class="avatar-placeholder"></div>
+      </div>
+      <div class="comment-form-content">
+        <div class="comment-editor">
+          <textarea class="comment-input" placeholder="Write a comment... (Markdown supported)" rows="3"></textarea>
+          <div class="comment-preview"></div>
+        </div>
+        <div class="comment-form-actions">
+          <button class="preview-toggle" type="button">Preview</button>
+          <button class="comment-submit" type="button" disabled>Comment</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="comments-list">
+      <!-- Comments loaded dynamically -->
+    </div>
+  </div>
+</footer>
+{{end}}

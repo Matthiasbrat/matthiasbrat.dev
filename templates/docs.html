@@ -1,0 +1,25 @@
+{{define "content"}}
+<div class="docs-container">
+    <div class="docs-header">
+        <h1>Documentation</h1>
+        <p class="docs-description">Learn how to use the platform with our comprehensive guides.</p>
+    </div>
+
+    <div class="docs-grid">
+        {{range .DocsCollections}}
+        <a href="/{{.Slug}}" class="docs-card">
+            {{if .Icon}}
+            <div class="docs-card-icon-wrapper">
+                <img src="{{.Icon}}" alt="" class="docs-card-icon" />
+            </div>
+            {{end}}
+            <h2>{{.Name}}</h2>
+            {{if .Description}}
+            <p>{{.Description}}</p>
+            {{end}}
+            <span class="docs-card-count">{{len .Posts}} {{if eq (len .Posts) 1}}chapter{{else}}chapters{{end}}</span>
+        </a>
+        {{end}}
+    </div>
+</div>
+{{end}}
