@@ -1,0 +1,44 @@
+# Binaries
+/site
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+
+# Build output
+/dist/
+
+# Persistent data (SQLite DB)
+data/
+data/*
+
+# Environment files (do NOT commit secrets)
+/.env
+.env.*.local
+.env.local
+
+# Editor/IDE
+.vscode/
+.idea/
+*.iml
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs / temp
+*.log
+*.tmp
+.cache/
+
+# Node
+node_modules/
+
+# Vendor / Go build artifacts
+vendor/
+bin/
+coverage.out
+*.coverprofile
