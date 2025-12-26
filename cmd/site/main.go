@@ -1,5 +1,10 @@
 package main
 
+// site build --dry-run
+// site dev -port 3000
+// site serve -port 8080
+// site help
+
 import (
 	"flag"
 	"fmt"
