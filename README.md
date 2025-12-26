@@ -312,6 +312,29 @@ Changes trigger automatic rebuilds and browser refresh via WebSocket.
 
 ## Deployment
 
+### GitHub Pages (Recommended)
+
+This project includes automated GitHub Pages deployment via GitHub Actions.
+
+**Quick Setup:**
+
+1. Enable GitHub Pages in your repository settings:
+   - Go to Settings → Pages
+   - Select "GitHub Actions" as the source
+
+2. Configure your custom domain:
+   - Add your domain in Settings → Pages → Custom domain
+   - Update DNS records (see [DEPLOYMENT.md](DEPLOYMENT.md) for details)
+
+3. Push to the `main` branch - deployment happens automatically!
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for complete deployment documentation including:
+- DNS configuration
+- Custom domain setup
+- SSL/HTTPS configuration
+- Troubleshooting guide
+- Alternative deployment methods
+
 ### Docker
 
 Build and run with Docker:
