@@ -3,35 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Variables and Types in Go | Go Fundamentals | Matthias Brat</title>
-    <meta name="description" content="Understanding Go&#39;s type system and variable declarations">
-    <link rel="canonical" href="https://matthiasbrat.com/blog/golang-fundamentals/variables-and-types">
+    <title>Custom Themes | Learn anything fast | Matthias Brat</title>
+    <meta name="description" content="Create and customize your own themes">
+    <link rel="canonical" href="https://matthiasbrat.com/docs/learn-fast/custom-themes">
     <link rel="icon" href="/favicon.ico" sizes="32x32">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
     
-    <meta property="og:title" content="Variables and Types in Go | Go Fundamentals | Matthias Brat">
-    <meta property="og:description" content="Understanding Go&#39;s type system and variable declarations">
+    <meta property="og:title" content="Custom Themes | Learn anything fast | Matthias Brat">
+    <meta property="og:description" content="Create and customize your own themes">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://matthiasbrat.com/blog/golang-fundamentals/variables-and-types">
+    <meta property="og:url" content="https://matthiasbrat.com/docs/learn-fast/custom-themes">
     
-    <meta property="og:image" content="https://matthiasbrat.com/og/blog/golang-fundamentals/variables-and-types.png">
-    <meta property="og:image:alt" content="Variables and Types in Go | Go Fundamentals | Matthias Brat">
+    <meta property="og:image" content="https://matthiasbrat.com/og/docs/learn-fast/custom-themes.png">
+    <meta property="og:image:alt" content="Custom Themes | Learn anything fast | Matthias Brat">
     
     <meta property="og:site_name" content="Matthias Brat">
 
     
-    <meta property="article:published_time" content="2025-01-20T00:00:00Z">
+    <meta property="article:published_time" content="0001-01-01T00:00:00Z">
     
     
 
     
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Variables and Types in Go | Go Fundamentals | Matthias Brat">
-    <meta name="twitter:description" content="Understanding Go&#39;s type system and variable declarations">
+    <meta name="twitter:title" content="Custom Themes | Learn anything fast | Matthias Brat">
+    <meta name="twitter:description" content="Create and customize your own themes">
     
-    <meta name="twitter:image" content="https://matthiasbrat.com/og/blog/golang-fundamentals/variables-and-types.png">
-    <meta name="twitter:image:alt" content="Variables and Types in Go | Go Fundamentals | Matthias Brat">
+    <meta name="twitter:image" content="https://matthiasbrat.com/og/docs/learn-fast/custom-themes.png">
+    <meta name="twitter:image:alt" content="Custom Themes | Learn anything fast | Matthias Brat">
     
 
     
@@ -125,9 +125,9 @@ body { font-family: var(--font-body); font-size: var(--text-base); line-height: 
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "datePublished": "2025-01-20T00:00:00Z",
-  "description": "Understanding Go's type system and variable declarations",
-  "headline": "Variables and Types in Go"
+  "datePublished": "0001-01-01T00:00:00Z",
+  "description": "Create and customize your own themes",
+  "headline": "Custom Themes"
 }
     </script>
     
@@ -207,14 +207,21 @@ body { font-family: var(--font-body); font-size: var(--text-base); line-height: 
     <main id="main-content">
         
 <div class="page-layout">
-    <aside class="sidebar sidebar-blog" aria-label="Navigation">
+    <aside class="sidebar sidebar-docs" aria-label="Navigation">
         <div class="sidebar-inner">
             
                 
 <nav class="sidebar-nav">
     <div class="sidebar-header">
-        <a href="/blog/golang-fundamentals" class="sidebar-collection">Go Fundamentals</a>
+        <a href="/docs/learn-fast" class="sidebar-collection">Learn anything fast</a>
     </div>
+    <ol class="sidebar-chapters">
+        
+        <li class="sidebar-chapter sidebar-chapter-active">
+            <a href="/docs/learn-fast/custom-themes">Custom Themes</a>
+        </li>
+        
+    </ol>
 </nav>
 
                 
@@ -223,24 +230,15 @@ body { font-family: var(--font-body); font-size: var(--text-base); line-height: 
     <h3 class="sidebar-toc-title">On this page</h3>
     <ul class="toc-list">
         
-        <li class="toc-item toc-level-2">
-            <a href="#variable-declaration">Variable Declaration</a>
-        </li>
-        
-        <li class="toc-item toc-level-2">
-            <a href="#basic-types">Basic Types</a>
-        </li>
-        
-        <li class="toc-item toc-level-2">
-            <a href="#zero-values">Zero Values</a>
-        </li>
-        
-        <li class="toc-item toc-level-2">
-            <a href="#type-conversions">Type Conversions</a>
+        <li class="toc-item toc-level-1">
+            <a href="#custom-themes">Custom Themes</a>
         </li>
         
     </ul>
 </nav>
+
+
+                
 
 
             
@@ -250,119 +248,22 @@ body { font-family: var(--font-body); font-size: var(--text-base); line-height: 
     <article class="post-content">
         
 <header class="post-header">
-    <h1>Variables and Types in Go</h1>
-    
-    <div class="post-meta">
-        <time datetime="2025-01-20">January 20, 2025</time>
-        
-    </div>
+    <h1>Custom Themes</h1>
     
 </header>
 
 
         <div class="post-body">
-            <p>Go is statically typed, meaning variable types are known at compile time. Let&rsquo;s explore how to work with variables and types.</p>
-<h2 id="variable-declaration">Variable Declaration</h2>
-<div class="code-block" data-language="go"><pre class="chroma"><code><span class="line"><span class="cl"><span class="c1">// Explicit type
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">name</span> <span class="kt">string</span> <span class="p">=</span> <span class="s">&#34;Alice&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">age</span> <span class="kt">int</span> <span class="p">=</span> <span class="mi">30</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// Type inference
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">city</span> <span class="p">=</span> <span class="s">&#34;New York&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// Short declaration (functions only)
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">country</span> <span class="o">:=</span> <span class="s">&#34;USA&#34;</span></span></span></code></pre></div>
-<div class="callout callout-note iconset-hybrid" data-callout="note"><div class="callout-title">
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info-icon lucide-info"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><p class="callout-title-text">Note</p>
-</div>
-<div class="callout-body"><p>The <code>:=</code> operator is only available inside functions.</p>
-</div>
-</div>
-<h2 id="basic-types">Basic Types</h2>
-<div class="code-block" data-language="go"><pre class="chroma"><code><span class="line"><span class="cl"><span class="c1">// Strings
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">message</span> <span class="kt">string</span> <span class="p">=</span> <span class="s">&#34;Hello&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// Integers
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">count</span> <span class="kt">int</span> <span class="p">=</span> <span class="mi">42</span>
-</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">bigNumber</span> <span class="kt">int64</span> <span class="p">=</span> <span class="mi">9223372036854775807</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// Floating point
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">price</span> <span class="kt">float64</span> <span class="p">=</span> <span class="mf">19.99</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// Boolean
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">isActive</span> <span class="kt">bool</span> <span class="p">=</span> <span class="kc">true</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// Constants
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">const</span> <span class="nx">Pi</span> <span class="p">=</span> <span class="mf">3.14159</span></span></span></code></pre></div>
-<h2 id="zero-values">Zero Values</h2>
-<p>Uninitialized variables get zero values:</p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Zero Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>int</td>
-<td>0</td>
-</tr>
-<tr>
-<td>float64</td>
-<td>0.0</td>
-</tr>
-<tr>
-<td>string</td>
-<td>&quot;&quot;</td>
-</tr>
-<tr>
-<td>bool</td>
-<td>false</td>
-</tr>
-<tr>
-<td>pointer</td>
-<td>nil</td>
-</tr>
-</tbody>
-</table>
-<h2 id="type-conversions">Type Conversions</h2>
-<p>Go requires explicit type conversions:</p>
-<div class="code-block" data-language="go"><pre class="chroma"><code><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">i</span> <span class="kt">int</span> <span class="p">=</span> <span class="mi">42</span>
-</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">f</span> <span class="kt">float64</span> <span class="p">=</span> <span class="nb">float64</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">u</span> <span class="kt">uint</span> <span class="p">=</span> <span class="nb">uint</span><span class="p">(</span><span class="nx">f</span><span class="p">)</span></span></span></code></pre></div>
-<div class="callout callout-warning iconset-hybrid" data-callout="warning"><div class="callout-title">
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-alert-icon lucide-triangle-alert"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg><p class="callout-title-text">Warning</p>
-</div>
-<div class="callout-body"><p>Be careful with type conversions - you might lose precision or overflow.</p>
-</div>
-</div>
+            <h1 id="custom-themes">Custom Themes</h1>
 
         </div>
 
         
 
 
-<nav class="post-pager" aria-label="Post navigation">
-    
-    <a href="/blog/golang-fundamentals/concurrency-basics" class="post-pager-link post-pager-prev">
-        <span class="post-pager-label">Previous</span>
-        <span class="post-pager-title">Concurrency in Go</span>
-    </a>
-    
-    
-    <a href="/blog/golang-fundamentals/getting-started" class="post-pager-link post-pager-next">
-        <span class="post-pager-label">Next</span>
-        <span class="post-pager-title">Getting Started with Go</span>
-    </a>
-    
-</nav>
-
-
-
         
 <footer class="post-footer">
-  <div class="reactions" data-post="blog/golang-fundamentals/variables-and-types">
+  <div class="reactions" data-post="docs/learn-fast/custom-themes">
     <span class="reactions-label">React:</span>
     <div class="reaction-buttons">
       
@@ -394,7 +295,7 @@ body { font-family: var(--font-body); font-size: var(--text-base); line-height: 
     </div>
   </div>
 
-  <div class="comments-section" data-post="blog/golang-fundamentals/variables-and-types">
+  <div class="comments-section" data-post="docs/learn-fast/custom-themes">
     <h3 class="comments-title">Comments</h3>
 
     <div class="comment-form">
