@@ -1,4 +1,4 @@
-# matthiasbrat.com
+# matthiasbrat.dev
 
 A lightweight static site generator and server written in Go, designed for blogs and documentation sites with minimal dependencies and fast build times.
 
