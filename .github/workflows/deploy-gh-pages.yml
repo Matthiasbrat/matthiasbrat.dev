@@ -29,10 +29,10 @@ jobs:
         run: go build -o site ./cmd/site
 
       - name: Build static site
-        run: ./site build -base-url https://matthiasbrat.com
+        run: ./site build -base-url https://matthiasbrat.dev
 
       - name: Add CNAME file
-        run: echo "matthiasbrat.com" > dist/CNAME
+        run: echo "matthiasbrat.dev" > dist/CNAME
 
       - name: Add .nojekyll file
         run: touch dist/.nojekyll
@@ -43,4 +43,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           publish_branch: gh-pages
-          cname: matthiasbrat.com
+          cname: matthiasbrat.dev
