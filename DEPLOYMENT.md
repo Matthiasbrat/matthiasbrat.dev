@@ -1,16 +1,13 @@
 # Deployment Guide
 
-This document explains how to deploy the matthiasbrat.com site to GitHub Pages.
+This document explains how to deploy the matthiasbrat.dev site to GitHub Pages.
 
 ## GitHub Pages Deployment
 
-The site is configured to deploy automatically to GitHub Pages at https://matthiasbrat.com using GitHub Actions.
+The site is configured to deploy automatically to GitHub Pages at https://matthiasbrat.dev using GitHub Actions.
 
-### Available Workflows
+### Workflow
 
-Two GitHub Actions workflows are provided:
-
-#### 1. GitHub Pages Action (Recommended)
 **File:** `.github/workflows/deploy.yml`
 
 This workflow uses the official GitHub Pages deployment action:
@@ -18,28 +15,6 @@ This workflow uses the official GitHub Pages deployment action:
 - Generates static files to `dist/`
 - Deploys using `actions/deploy-pages@v4`
 - Automatically handles CNAME and .nojekyll files
-
-#### 2. gh-pages Branch Deployment (Alternative)
-**File:** `.github/workflows/deploy-gh-pages.yml`
-
-This workflow uses the traditional gh-pages branch approach:
-- Builds the site using Go 1.24
-- Pushes static files to `gh-pages` branch
-- Uses `peaceiris/actions-gh-pages@v4` action
-
-### Choosing a Workflow
-
-**Use the GitHub Pages Action (deploy.yml) if:**
-- You want the official GitHub-supported method
-- You prefer using GitHub's built-in Pages deployment
-- You want better integration with GitHub Environments
-
-**Use the gh-pages Branch method (deploy-gh-pages.yml) if:**
-- You prefer the traditional gh-pages branch approach
-- You want to manually inspect deployed files in the gh-pages branch
-- You're migrating from an existing gh-pages setup
-
-**Important:** Only enable ONE workflow at a time to avoid conflicts. Comment out or delete the workflow file you don't want to use.
 
 ### Setup Instructions
 
@@ -49,26 +24,18 @@ This workflow uses the traditional gh-pages branch approach:
    - Go to your repository on GitHub
    - Navigate to Settings → Pages
    - Under "Build and deployment":
-     - For `deploy.yml`: Select "GitHub Actions" as the source
-     - For `deploy-gh-pages.yml`: Select "Deploy from a branch" and choose `gh-pages` branch
+     - Select "GitHub Actions" as the source
 
 2. **Configure Custom Domain:**
    - In Settings → Pages → Custom domain
-   - Enter: `matthiasbrat.com`
+   - Enter: `matthiasbrat.dev`
    - Wait for DNS check to complete
 
 3. **Configure DNS Records:**
 
    Add the following DNS records at your domain registrar:
 
-   **For CNAME (subdomain) approach:**
-   ```
-   Type: CNAME
-   Name: www
-   Value: matthiasbrat.github.io
-   ```
-
-   **For A records (apex domain) approach:**
+   **A records (apex domain):**
    ```
    Type: A
    Name: @
@@ -87,7 +54,7 @@ This workflow uses the traditional gh-pages branch approach:
    Value: 185.199.111.153
    ```
 
-   **For both approaches, also add:**
+   **AAAA records (IPv6):**
    ```
    Type: AAAA
    Name: @
@@ -113,7 +80,7 @@ This workflow uses the traditional gh-pages branch approach:
 
 #### Deployment Trigger
 
-The workflows are triggered on:
+The workflow is triggered on:
 - **Automatic:** Every push to the `main` branch
 - **Manual:** Via the "Actions" tab → "Run workflow" button
 
@@ -125,7 +92,7 @@ The deployment workflow performs these steps:
 2. **Setup Go:** Installs Go 1.24
 3. **Install Dependencies:** Runs `go mod download`
 4. **Build Binary:** Compiles the site generator
-5. **Build Site:** Generates static files with `./site build -base-url https://matthiasbrat.com`
+5. **Build Site:** Generates static files with `./site build -base-url https://matthiasbrat.dev`
 6. **Add Files:** Includes CNAME and .nojekyll
 7. **Deploy:** Pushes to GitHub Pages
 
@@ -149,7 +116,7 @@ The built site includes:
    - Check build logs and deployment status
 
 2. **Check Deployment:**
-   - Visit https://matthiasbrat.com
+   - Visit https://matthiasbrat.dev
    - Verify content is updated
    - Check browser console for errors
 
@@ -166,7 +133,7 @@ Before pushing to main, test the build locally:
 ```bash
 # Build the site
 go build -o site ./cmd/site
-./site build -base-url https://matthiasbrat.com
+./site build -base-url https://matthiasbrat.dev
 
 # Serve locally to test
 ./site serve -output dist -port 8080
@@ -192,26 +159,6 @@ If you want to enable reactions/comments in production:
 3. **Monitor Actions:** Check workflow runs for failures
 4. **Cache Dependencies:** The workflow caches Go modules for faster builds
 5. **Semantic Versioning:** Tag releases with version numbers
-
-### Manual Deployment
-
-If you need to deploy manually without GitHub Actions:
-
-```bash
-# 1. Build the site
-go build -o site ./cmd/site
-./site build -base-url https://matthiasbrat.com
-
-# 2. Add required files
-echo "matthiasbrat.com" > dist/CNAME
-touch dist/.nojekyll
-
-# 3. Install gh-pages npm package (one-time)
-npm install -g gh-pages
-
-# 4. Deploy
-gh-pages -d dist
-```
 
 ### Rollback
 
@@ -263,7 +210,6 @@ The deployment includes several optimizations:
 - Ensure .nojekyll file is present
 - Check file paths in generated HTML
 - Verify base URL is correct
-- Check if files exist in gh-pages branch
 
 ## Alternative Deployment Options
 
@@ -271,7 +217,7 @@ The deployment includes several optimizations:
 
 ```bash
 # Build command
-go build -o site ./cmd/site && ./site build -base-url https://matthiasbrat.com
+go build -o site ./cmd/site && ./site build -base-url https://matthiasbrat.dev
 
 # Publish directory
 dist
@@ -299,7 +245,7 @@ Create `vercel.json`:
 
 ### Cloudflare Pages
 
-- Build command: `go build -o site ./cmd/site && ./site build -base-url https://matthiasbrat.com`
+- Build command: `go build -o site ./cmd/site && ./site build -base-url https://matthiasbrat.dev`
 - Build output directory: `dist`
 
 ### Self-Hosted
