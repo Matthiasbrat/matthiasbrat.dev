@@ -27,7 +27,7 @@ jobs:
       - name: Build site
         run: |
           go build -o site ./cmd/site
-          ./site build -base-url https://matthiasbrat.github.io/matthiasbrat.dev
+          ./site build -base-url https://matthiasbrat.dev
           echo "matthiasbrat.dev" > dist/CNAME
 
       - name: Deploy
